@@ -6,6 +6,16 @@ pipeline {
     }
   }
   stages {
+    stage('Clean workspace'){
+     steps{
+      cleanWS()
+}
+}
+stage('Cleanup') {
+            steps {
+                deleteDir()
+            }
+        }
     stage('Build and Test') {
       steps {
         sh 'ls -ltr'
