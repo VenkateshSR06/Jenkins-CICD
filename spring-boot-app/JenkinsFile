@@ -9,7 +9,7 @@ pipeline {
     stage('Checkout') {
       steps {
         sh 'echo passed'
-        //git branch: 'main', url: 'https://github.com/VenkateshSR06/Jenkins-CICD.git'
+        git branch: 'main', url: 'https://github.com/VenkateshSR06/Jenkins-CICD.git'
         //testing piepline4
       }
     }
@@ -55,6 +55,7 @@ pipeline {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
               dir('spring-boot-app'){
                 sh '''
+                    cd ..
                     git config user.email "venkatesh.sr781@gmail.com"
                     git config user.name "VenkateshSR06"
                     BUILD_NUMBER=${BUILD_NUMBER}
