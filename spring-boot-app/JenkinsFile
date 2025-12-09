@@ -55,6 +55,7 @@ pipeline {
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]) {
               dir('spring-boot-app-manifests'){
                 sh '''
+                    ls -ltr
                     git config user.email "venkatesh.sr781@gmail.com"
                     git config user.name "VenkateshSR06"
                     BUILD_NUMBER=${BUILD_NUMBER}
